@@ -71,3 +71,17 @@ print(f"{a} % {b} = {a % b}")  # 取余: 1
 print(f"{a} ** {b} = {a ** b}")  # 幂运算: 1000
 print(f"-{a} = {-a}")  # 取负: -10
 print(f"+{a} = {+a}")  # 取正: 10
+
+# 内存占用
+
+import sys
+
+"""显示整型的内存占用"""
+numbers = [0, 1, 10, 100, 1000, 10**10, 10**100]
+
+print("整型内存占用:")
+for num in numbers:
+    size = sys.getsizeof(num)
+    print(f"数字 {num}: {size} 字节")
+
+
