@@ -7,9 +7,6 @@ def countdown(n):
   countdown(n - 1)
 
 countdown(3)
-
-
-
 def fibonacci(n):
     # 基本情况：前两个数
     if n <= 1:
