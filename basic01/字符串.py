@@ -1,9 +1,9 @@
 # 字符串的创建方式
-str1 = '单引号字符串'
+str1 = "单引号字符串"
 str2 = "双引号字符串"
-str3 = '''三引号可以
+str3 = """三引号可以
 创建多行
-字符串'''
+字符串"""
 str4 = """同样支持
 多行文本"""
 
@@ -12,7 +12,6 @@ print(str2)
 print(str3)
 print(str4)
 print(f"类型: {type(str1)}")  # <class 'str'>
-
 
 
 text = "Hello Python Programming"
@@ -34,5 +33,5 @@ print(f"text[::-1]: '{text[::-1]}'")  # gnimmargorP nohtyP olleH (反转)
 print(f"text[0:10:2]: '{text[0:10:2]}'")  # HloPt (0到10，步长2)
 
 
-s = 'ssskkk'
-s[0] = 'l'
+s = "ABC"
+print(s.lower())
