@@ -1,0 +1,20 @@
+[project]
+name = "python-learn-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.2",
+    "langchain-text-splitters",
+    "lxml>=6.0.2",
+    "openpyxl>=3.1.5",
+    "pymupdf>=1.26.6",
+    "python-docx>=1.2.0",
+    "python-pptx>=1.0.2",
+    "sentence-transformers",
+]
+
+[[tool.uv.index]]
+url = "http://mirrors.aliyun.com/pypi/simple/"
+default = true
