@@ -22,7 +22,9 @@ class ToolExecutor:
         """
         根据名称获取一个工具的执行函数。
         """
-        return self.tools.get(name, {}).get("func")
+        return self.tools.get(name, {}).get(
+            "func"
+        )  # get 方法的第二个参数是默认值，如果 key 不存在，则返回默认值 防止get('func')时报错
 
     def getAvailableTools(self) -> str:
         """

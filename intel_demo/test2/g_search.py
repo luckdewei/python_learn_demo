@@ -1,5 +1,9 @@
 from serpapi import SerpApiClient
 import os
+from dotenv import load_dotenv
+
+# 加载 .env 文件中的环境变量
+load_dotenv()
 
 
 def search(query: str) -> str:
@@ -23,6 +27,7 @@ def search(query: str) -> str:
 
         client = SerpApiClient(params)
         results = client.get_dict()
+        print("results:", results)
 
         # 智能解析:优先寻找最直接的答案
         if "answer_box_list" in results:
