@@ -1,59 +1,30 @@
-class Stock:
-    def __init__(self, name, shares, price):
-        self.name = name
-        self.shares = shares
-        self.price = price
+from collections.abc import Iterable, Iterator
 
-
-# class Portfolio:
-#     def __init__(self):
-#         self.holdings = []  # 持有股票的列表
-
-#     def add_stock(self, stock):
-#         self.holdings.append(stock)
-
-#     def __iter__(self):
-#         return iter(self.holdings)  # 返回列表的迭代器
-
-
-class Portfolio:
-    def __init__(self, holdings=[]):
-        self._holdings = holdings
-
+# 迭代器对象
+class IT(object):
+    def __init__(self):
+        self.counter = 0
     def __iter__(self):
-        return self._holdings.__iter__()
+        return self
+    def __next__(self):
+        self.counter += 1
+        if self.counter >= 10:
+            raise StopIteration
+        return self.counter
 
-    def __len__(self):
-        return len(self._holdings)
+obj = IT()
 
-    def __getitem__(self, index):
-        return self._holdings[index]
+# v1 = obj.__next__()
+# v2 = obj.__next__()
+# v3 = obj.__next__()
+v1 = next(obj)
+v2 = next(obj)
+v3 = next(obj)
+print(v1)
+print(v2)
+print(v3)
 
-    def __contains__(self, name):
-        return any([s.name == name for s in self._holdings])
+for x in obj:
+    print(f"x:{x}")
 
-    def add_stock(self, stock):
-        self._holdings.append(stock)
-
-    @property
-    def total_cost(self):
-        return sum([s.shares * s.price for s in self._holdings])
-
-    def tabulate_shares(self):
-        from collections import Counter
-
-        total_shares = Counter()
-        for s in self._holdings:
-            total_shares[s.name] += s.shares
-        return total_shares
-
-
-# 创建投资组合
-portfolio = Portfolio()
-portfolio.add_stock(Stock("IBM", 100, 120.5))
-portfolio.add_stock(Stock("MSFT", 50, 210.7))
-portfolio.add_stock(Stock("AAPL", 30, 145.2))
-
-# 使用for循环迭代投资组合中的股票
-for stock in portfolio:
-    print(f"股票: {stock.name}, 数量: {stock.shares}, 价格: {stock.price}")
+print(isinstance(obj, Iterable))
