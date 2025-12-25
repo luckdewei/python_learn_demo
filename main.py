@@ -1,5 +1,5 @@
 def main():
-    print("Hello from flask-demo!")
+    print("Hello from python-learn-demo!")
 
 
 if __name__ == "__main__":
