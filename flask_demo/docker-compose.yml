@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mysql:8
+    container_name: mysql
+#    restart: always
+    restart: on-failure:5
+    command: # 指定字符集 & 排列顺序
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 # root密码
+      MYSQL_DATABASE: test_db # 启动时自动创建的数据库名称
+      MYSQL_USER: test # 用户名
+      MYSQL_PASSWORD: test123 # 用户密码
+      TZ: Asia/Shanghai # 设置时区
+    volumes:
+      - mysql8_data:/var/lib/mysql
+    networks:
+      - backend
+volumes:
+  mysql8_data:
+networks:
+  backend:
+    driver: bridge
